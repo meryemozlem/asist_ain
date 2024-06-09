@@ -7,6 +7,7 @@ import 'package:deneme8/services/camera.dart';
 import 'package:deneme8/services/render_data.dart';
 
 class PushedPageS extends StatefulWidget {
+
   final List<CameraDescription> cameras;
   final String title;
   const PushedPageS({required this.cameras, required this.title});

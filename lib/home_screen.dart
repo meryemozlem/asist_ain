@@ -6,6 +6,7 @@ import 'package:deneme8/main_screen.dart';
 import 'package:deneme8/workouts.dart';
 
 class HomeScreen extends StatefulWidget {
+
   final List<CameraDescription> cameras;
   HomeScreen(this.cameras);
 
@@ -14,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+
   int _selectedIndex = 0;
   static final List<Widget> _widgetOptions = <Widget>[
     MainScreen(cameras),
@@ -30,36 +32,35 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       body: Center(
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
         backgroundColor: Color(0xFFFE7C7C),
-        showSelectedLabels: false,
+        showSelectedLabels: true,
         showUnselectedLabels: false,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
             icon: Icon(LineAwesomeIcons.universal_access_solid),
-            label: 'Align',
+            label: 'Ana Sayfa',
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
             icon: Icon(LineAwesomeIcons.burn_solid),
-            label: 'Workout',
+            label: 'Egzersizler',
           ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
             icon: Icon(LineAwesomeIcons.user),
-            label: 'Profile',
+            label: 'Profil',
           ),
         ],
         currentIndex: _selectedIndex,
         unselectedItemColor: Colors.black,
-        selectedItemColor: Colors.white,
-        iconSize: 36.0,
-        elevation: 0.0,
+        selectedItemColor: Colors.white70,
+        iconSize: 35.0,
+        elevation: 80,
         onTap: _onItemTapped,
       ),
 
