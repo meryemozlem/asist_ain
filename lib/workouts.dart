@@ -3,7 +3,6 @@ import 'package:deneme8/widgets/search_bar.dart' as align_ai;
 import 'package:tflite_flutter/tflite_flutter.dart';
 
 class WorkOutPage extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
@@ -23,15 +22,12 @@ class WorkOutPage extends StatelessWidget {
                 fontSize: 28.0,
               ),
             ),
-            Image.asset('images/workout.PNG', width: 330, height: 330,),
-           /* SizedBox(height: 3),*/
+            Image.asset('images/workout.PNG', width: 330, height: 330),
             SizedBox(
               child: align_ai.SearchBar('Bugün hangi hareketi yapmak istersin?'),
             ),
             SizedBox(height: 5),
-            SizedBox(
-              //width: screen.width,
-              height: 250,
+            Expanded(
               child: ListView(
                 scrollDirection: Axis.vertical,
                 children: [
@@ -45,7 +41,6 @@ class WorkOutPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(18.0),
                       child: Row(
-                        //mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -71,7 +66,7 @@ class WorkOutPage extends StatelessWidget {
                                 'Orta düzeyli aktivite',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 14,
+                                  fontSize: 15,
                                 ),
                               ),
                             ],
@@ -92,7 +87,6 @@ class WorkOutPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(20.0),
                       child: Row(
-                        //mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -118,7 +112,7 @@ class WorkOutPage extends StatelessWidget {
                                 'Ağır düzeyli aktivite',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 14,
+                                  fontSize: 15,
                                 ),
                               ),
                             ],
@@ -139,7 +133,6 @@ class WorkOutPage extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.all(18.0),
                       child: Row(
-                        //mainAxisAlignment: MainAxisAlignment.start,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -165,12 +158,12 @@ class WorkOutPage extends StatelessWidget {
                                 'Hafif aktiviteler',
                                 style: TextStyle(
                                   color: Colors.white,
-                                  fontSize: 14,
+                                  fontSize: 15,
                                 ),
                               ),
                             ],
                           ),
-                          Image.asset('images/yoga.PNG', width: 188,height:180),
+                          Image.asset('images/yoga.PNG', width: 188, height: 180),
                         ],
                       ),
                     ),

@@ -29,7 +29,7 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
   late  double kneeRY;
   late double kneeLY;
   late bool squatUp;
-  String whatToDo = 'Finding Posture';
+  String whatToDo = 'Duruş Bulunuyor';
 
   var leftEyePos = Vector(0, 0);
   var rightEyePos = Vector(0, 0);
@@ -116,7 +116,7 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
     if (isCorrectPosture && squatUp && midCount == false) {
       //in correct initial posture
       setState(() {
-        whatToDo = 'Lift';
+        whatToDo = 'Kaldır';
         //correctColor = Colors.green;
       });
       squatUp = !squatUp;
@@ -129,7 +129,7 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
       isCorrectPosture = false;
       squatUp = !squatUp;
       setState(() {
-        whatToDo = 'Drop';
+        whatToDo = 'Aşağı';
         //correctColor = Colors.green;
       });
     }
@@ -140,7 +140,7 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
       midCount = false;
       squatUp = !squatUp;
       setState(() {
-        whatToDo = 'Lift';
+        whatToDo = 'Aşağı';
       });
     }
   }
@@ -340,7 +340,7 @@ class _RenderDataArmPressState extends State<RenderDataArmPress> {
               children: [
                 Text(
                   '$whatToDo\nArm Presses: ${_counter.toString()}',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

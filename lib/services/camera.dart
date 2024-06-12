@@ -1,9 +1,14 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+
+import 'package:deneme8/pushed_pageA.dart';
+import 'package:deneme8/pushed_pageS.dart';
 import 'package:deneme8/pushed_pageY.dart';
-import 'package:tflite_flutter/tflite_flutter.dart';
 import 'dart:math' as math;
+
+import 'package:tflite_flutter/tflite_flutter.dart';
+//import 'package:tflite/tflite.dart';
 
 typedef void Callback(List<dynamic> list, int h, int w);
 
@@ -26,7 +31,7 @@ class _CameraState extends State<Camera> {
     super.initState();
 
     if (widget.cameras.length < 1) {
-      print('No camera is found');
+      print('Kamera erişimi bulunamadı');
     } else {
       controller = new CameraController(
         widget.cameras[1],
@@ -44,7 +49,7 @@ class _CameraState extends State<Camera> {
 
             int startTime = new DateTime.now().millisecondsSinceEpoch;
 
-            Tflite.runPoseNetOnFrame(
+            Tflite1.runPoseNetOnFrame(
               bytesList: img.planes.map((plane) {
                 return plane.bytes;
               }).toList(),
@@ -98,5 +103,12 @@ class _CameraState extends State<Camera> {
       child: CameraPreview(controller),
     );
   }
+}
+
+class Tflite1 {
+  static loadModel({required String model}) {}
+
+  static runPoseNetOnFrame({required List<Uint8List> bytesList, required int imageHeight, required int imageWidth, required int numResults, required int rotation, required double threshold, required int nmsRadius}) {}
+
 }
 

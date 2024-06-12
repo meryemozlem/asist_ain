@@ -27,7 +27,7 @@ class _RenderDataState extends State<RenderData> {
   late double kneeRY;
   late  double kneeLY;
   late bool squatUp;
-  String whatToDo = 'Finding Posture';
+  String whatToDo = 'Duruş Bulunuyor';
 
   var leftEyePos = Vector(0, 0);
   var rightEyePos = Vector(0, 0);
@@ -106,7 +106,7 @@ class _RenderDataState extends State<RenderData> {
     if (isCorrectPosture && squatUp && midCount == false) {
       //in correct initial posture
       setState(() {
-        whatToDo = 'Squat Down';
+        whatToDo = 'Squat Aşağı';
         //correctColor = Colors.green;
       });
       squatUp = !squatUp;
@@ -254,13 +254,13 @@ class _RenderDataState extends State<RenderData> {
             width: 100,
             height: 15,
             child: Container(
-              // child: Text(
-              //   "● ${k["part"]}",
-              //   style: TextStyle(
-              //     color: Color.fromRGBO(37, 213, 253, 1.0),
-              //     fontSize: 12.0,
-              //   ),
-              // ),
+               child: Text(
+                 "● ${k["part"]}",
+                 style: TextStyle(
+                   color: Color.fromRGBO(37, 213, 253, 1.0),
+                   fontSize: 12.0,
+                 ),
+               ),
             ),
           );
         }).toList();
@@ -334,7 +334,7 @@ class _RenderDataState extends State<RenderData> {
               children: [
                 Text(
                   '$whatToDo\nArm Presses: ${_counter.toString()}',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
                 ),
               ],
             ),

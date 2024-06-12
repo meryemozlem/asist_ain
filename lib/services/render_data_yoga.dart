@@ -19,7 +19,7 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
   String excercise = 'warrior';
   late Color correctColor;
   late Color armColor, shoulderColor, legColor;
-  String memo = 'Warrior position not aligned.';
+  String memo = 'Duruş konumu hizalanamadı';
 
   late double leftShoulderY,
       rightShoulderY,
@@ -339,7 +339,7 @@ class _RenderDataYogaState extends State<RenderDataYoga> {
                 Text(
                   //'$whatToDo\nArm Presses: ${_counter.toString()}',
                   '$memo',
-                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),
                 ),
               ],
             ),
