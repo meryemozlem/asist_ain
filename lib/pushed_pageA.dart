@@ -3,10 +3,9 @@ import 'package:camera/camera.dart';
 import 'package:deneme8/services/camera.dart';
 import 'package:deneme8/services/render_data_arm_press.dart';
 import 'package:flutter/services.dart';
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'dart:math';
-
 
 class PushedPageA extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -19,6 +18,7 @@ class PushedPageA extends StatefulWidget {
 
 class _PushedPageAState extends State<PushedPageA> {
   late List<dynamic> _data;
+  late var interpreter;
   int _imageHeight = 0;
   int _imageWidth = 0;
 
@@ -45,16 +45,8 @@ class _PushedPageAState extends State<PushedPageA> {
     return status.isGranted;
   }
 
-  Future<String> loadModel() async {
-    try {
-      await Tflite1.loadModel(
-        model: "assets/posenet_mv1_075_float_from_checkpoints.tflite",
-      );
-      return 'Model loaded successfully';
-    } catch (e) {
-      print('Failed to load model: $e');
-      return 'Model loading failed';
-    }
+  loadModel() async {
+    interpreter = await interpreter.fromAsset('assets/posenet_mv1_075_float_from_checkpoints (1).tflite');
   }
 
   _setRecognitions(data, imageHeight, imageWidth) {
@@ -96,21 +88,3 @@ class _PushedPageAState extends State<PushedPageA> {
   }
 }
 
-// Dummy Tflite class to avoid errors. Replace with actual Tflite implementation.
-class Tflite1 {
-  static Future<void> loadModel({required String model}) async {
-    // Load your model here
-  }
-
-  static Future<void> runPoseNetOnFrame({
-    required List<Uint8List> bytesList,
-    required int imageHeight,
-    required int imageWidth,
-    required int numResults,
-    required int rotation,
-    required double threshold,
-    required int nmsRadius,
-  }) async {
-    // Run pose estimation here
-  }
-}
