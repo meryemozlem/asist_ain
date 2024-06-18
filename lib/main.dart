@@ -3,9 +3,8 @@ import 'dart:async';
 import 'package:camera/camera.dart';
 import 'package:deneme8/main_screen.dart';
 import 'package:deneme8/home_screen.dart';
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:flutter_tflite/flutter_tflite.dart';
 import 'package:image_picker/image_picker.dart';
-//import 'package:tflite/tflite.dart'; tflite: ^1.1.1
 import 'dart:io';
 
 late List<CameraDescription> cameras;

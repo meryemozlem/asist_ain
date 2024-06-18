@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:deneme8/widgets/search_bar.dart' as align_ai;
-import 'package:tflite_flutter/tflite_flutter.dart';
 
 class WorkOutPage extends StatelessWidget {
   @override

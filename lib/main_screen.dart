@@ -1,15 +1,14 @@
 import 'package:deneme8/main.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-//import 'package:tflite_flutter_plus/tflite_flutter_plus.dart' as tflPlus;
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:flutter_tflite/flutter_tflite.dart';
 import 'pushed_pageA.dart';
 import 'pushed_pageS.dart';
 import 'pushed_pageY.dart';
 
 
 class MainScreen extends StatelessWidget {
-
+  late var interpreter;
   final List<CameraDescription> cameras;
   MainScreen(this.cameras);
 
@@ -405,16 +404,4 @@ class YanProfile extends StatelessWidget {
   }
 }
 
-class MyModel {
-  Interpreter? _interpreter;
-  Future<void> loadModel() async {
-    _interpreter = await Interpreter.fromAsset('posenet_mv1_075_float_from_checkpoints.tflite');
-  }
 
-  List<dynamic> runModel(List<dynamic> input) {
-    // Reshape function from tflite_flutter_helper library
-    var output = List.filled(1 * 1001, 0).reshape([1, 1001]);
-    _interpreter?.run(input, output);
-    return output;
-  }
-}

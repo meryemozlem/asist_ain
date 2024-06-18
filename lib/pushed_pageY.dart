@@ -1,13 +1,13 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
-import 'package:tflite_flutter/tflite_flutter.dart';
+import 'package:flutter_tflite/flutter_tflite.dart';
+import 'package:tflite_flutter_helper_plus/tflite_flutter_helper_plus.dart';
 import 'dart:math';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:deneme8/services/camera.dart';
 import 'package:deneme8/services/render_data_yoga.dart';
 import 'package:flutter/services.dart';
-//import 'package:tflite_flutter/tflite_flutter.dart';
 
 class PushedPageY extends StatefulWidget {
   final List<CameraDescription> cameras;
@@ -19,6 +19,7 @@ class PushedPageY extends StatefulWidget {
 }
 
 class _PushedPageYState extends State<PushedPageY> {
+  late var interpreter;
   late List<dynamic> _data;
   int _imageHeight = 0;
   int _imageWidth = 0;
@@ -61,8 +62,7 @@ class _PushedPageYState extends State<PushedPageY> {
   }
 
   loadModel() async {
-    return await Tflite1.loadModel(
-        model: "assets/posenet_mv1_075_float_from_checkpoints.tflite");
+    interpreter = await interpreter.fromAsset('assets/posenet_mv1_075_float_from_checkpoints (1).tflite');
   }
 
   @override
@@ -91,12 +91,4 @@ class _PushedPageYState extends State<PushedPageY> {
       ),
     );
   }
-
-}
-
-class Tflite1 {
-  static loadModel({required String model}) {}
-
-  static runPoseNetOnFrame({required List<Uint8List> bytesList, required int imageHeight, required int imageWidth, required int numResults, required int rotation, required double threshold, required int nmsRadius}) {}
-
 }

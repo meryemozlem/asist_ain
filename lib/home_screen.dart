@@ -5,7 +5,7 @@ import 'package:line_awesome_flutter/line_awesome_flutter.dart';
 import 'package:camera/camera.dart';
 import 'package:deneme8/main_screen.dart';
 import 'package:deneme8/workouts.dart';
-
+import 'package:flutter_tflite/flutter_tflite.dart';
 
 class HomeScreen extends StatefulWidget {
   final List<CameraDescription> cameras;
